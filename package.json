@@ -1,0 +1,17 @@
+{
+  "name": "zksync-fun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "ethers": "^5.4.5",
+    "zksync": "^0.11.3",
+    "zksync-checkout": "^0.0.13"
+  }
+}

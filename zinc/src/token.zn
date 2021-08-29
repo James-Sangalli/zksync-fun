@@ -1,0 +1,22 @@
+use std::crypto::sha256;
+use std::collections::MTreeMap;
+
+contract Token {
+
+    pub name: string;
+    pub symbol: string;
+    pub owner: u160;
+
+    pub fn new(_name: string, _symbol: string, _owner: u160) -> Self {
+        Self {
+            name: _name,
+            symbol: _symbol,
+            owner: _owner
+        }
+    }
+
+    pub fun mint(mut self, amount: u64) {
+        require(self.sender == owner, "Only owner can mint");
+    }
+
+}

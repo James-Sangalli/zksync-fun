@@ -1,0 +1,52 @@
+//!
+//! The 'zinc' contract entry.
+//!
+use std::crypto::sha256;
+use std::collections::MTreeMap;
+
+struct Person {
+    age: u8,
+    id: u64,
+}
+
+contract Zinc {
+    pub value: u64;
+    people: MTreeMap<u64, Person>;
+    pub count: u64;
+
+    pub fn createPerson(mut self, age: u8, id: u64) -> Person {
+        let person = Person {
+            age: age,
+            id: id as u64,
+        };
+        self.people.insert(self.count, person);
+        self.count += 1 as u64;
+        person
+    }
+
+    pub fn new(value: u64) -> Self {
+        //let haha = sha256([true, "hello world"]);
+        let mut amt = 10;
+        let amount = zksync::msg.amount;
+        require(amount == 0, "don't send me money please");
+        require(amt == 10, "amt should be 10");
+        amt = 0;
+        require(amt == 0, "amt has been mutated to be 0");
+        require(amt == amount as u8, "casting fun");
+        Self {
+            value: value,
+            people: MTreeMap,
+            count: 0 as u64
+        }
+    }
+
+    // a = 5, b = 3
+    pub fn print_sum(a: u8, b: u8) {
+        dbg!("{} + {} = {}", a, b, a + b); // prints '5 + 3 = 8'
+    }
+
+    pub fn isContract() {
+        true;
+    }
+
+}

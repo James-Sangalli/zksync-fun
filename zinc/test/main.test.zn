@@ -1,0 +1,16 @@
+#[test]
+fn ordinar() {
+    require(2 + 2 == 4, "The laws of the Universe have been broken");
+}
+
+#[test]
+#[should_panic]
+fn panicking() {
+    require(2 + 2 == 5, "And it's okay");
+}
+
+#[test]
+#[ignore]
+fn ignored() {
+    require(2 + 2 > 4, "So we'll just ignore it");
+}
